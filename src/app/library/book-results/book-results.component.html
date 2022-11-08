@@ -1,0 +1,36 @@
+<!-- <div class="row mb-3" *ngFor="let book of allBooks">
+  <div class="col-md-12">
+    <a href="#" class="list-group-item clearfix">
+      <div class="float-left">
+        <h4 class="list-group-item-heading">{{ book.title }}</h4>
+        <p class="list-group-item-text mb-0">{{ book.genre }}</p>
+      </div>
+      <div class="float-right">
+        <img
+          src="{{ book.coverImagePath }}"
+          alt="{{ book.title }}"
+          class="img-responsive rounded"
+          style="max-height: 50px"
+
+        />
+      </div>
+    </a>
+  </div>
+</div> -->
+
+<div class="row mb-3" *ngIf="bookResults.length > 0">
+  <div class="col-md-9" *ngFor="let bookEl of bookResults">
+    <app-book [book]="bookEl"></app-book>
+    <button
+      class="float-right"
+      style="border: none; font-size: 16px"
+      (click)="onSaveBook(bookEl)"
+    >
+      &plus;
+    </button>
+  </div>
+</div>
+
+<div class="mb-3 row" *ngIf="bookResults.length < 1">
+  <p>No Books Available</p>
+</div>
