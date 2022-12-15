@@ -49,6 +49,9 @@ export class BookshelfService {
     }
   }
 
+
+
+
   getBook(idx: number) {
     return this.getBooks()[idx];
   }
